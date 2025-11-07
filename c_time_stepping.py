@@ -39,7 +39,7 @@ def fft_derivative(f):
     return f_deriv.real                         
 
 
-deeponet0 = torch.load(f'DeepONet_training_d4_n70_nx128_k120/Phase_new.pth')
+deeponet0 = torch.load(f'DeepONet_training_d4_n70_nx128_k120/Phase_new.pth', weights_only=False)
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 parser = argparse.ArgumentParser(description='hyper parameters')
@@ -135,6 +135,7 @@ np.savetxt(f"{folderj}/test_err_N.csv", np.array(test_error_N).reshape(-1,1))
 np.savetxt(f"{folderj}/test_err_J.csv", np.array(test_error_J).reshape(-1,1))
 np.savetxt(f"{folderj}/j_solution_test.csv", J_test)
 np.savetxt(f"{folderj}/n_solution_test.csv", N_test)
+
 
 
 
